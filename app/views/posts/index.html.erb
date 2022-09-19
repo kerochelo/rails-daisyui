@@ -1,16 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+<div class="alert alert-success shadow-lg">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <span><%= notice %></span>
+  </div>
+</div>
+<% end %>
 
 <h1 class="text-3xl font-bold italic hover:not-italic">Posts</h1>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+<div id="posts" class="overflow-x-auto"> 
+  <table class="table table-compact w-full">
+    <thead>
+      <tr>
+        <th>title</th>
+        <th>body</th>
+        <th><%= link_to "New post", new_post_path, class: "btn" %></th>
+      </tr>
+    </thead>
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  </table>
 </div>
-
-<%= link_to "New post", new_post_path %>
-
-<button class="btn-primary">ボタンだよ</button>
