@@ -81,7 +81,7 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["RAILS7_DAISY_DATABASE_URL"] %>
+  url: <%= ENV["DATABASE_URL"] %>
   database: rails7_daisy_production
-  username: rails7_daisy
+  username: postgres
   password: <%= ENV["RAILS7_DAISY_DATABASE_PASSWORD"] %>
